@@ -1,0 +1,24 @@
+galaxy_info:
+  role_name: vector
+  author: Maxim Kuzin
+  company: InfernoFeniks
+  description: Role for installation and managing Vector
+
+  license: MIT
+
+  min_ansible_version: "2.11"
+
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+        - stretch
+        - jessie
+
+  galaxy_tags:
+    - logs
+    - monitoring
+    - exporter
+
+dependencies: []
