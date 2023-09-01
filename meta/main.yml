@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: vector
+  namespace: infernofeniks
   author: Maxim Kuzin
   company: InfernoFeniks
   description: Role for installation and managing Vector
@@ -9,12 +10,20 @@ galaxy_info:
   min_ansible_version: "2.11"
 
   platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - bionic
     - name: Debian
       versions:
         - bullseye
         - buster
-        - stretch
-        - jessie
+    - name: EL
+      versions:
+        - "7"
+        - "8"
+
+
 
   galaxy_tags:
     - logs
