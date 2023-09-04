@@ -4,7 +4,7 @@
     name: vector
     state: started
     daemon_reload: true
-  when: ansible_facts.service_mgr == "systemd" and ansible_facts.virtualization_type != "docker"
+  when: ansible_facts.virtualization_type != "docker" and ansible_facts.virtualization_type != "podman"
 
 - name: VECTOR | Restarted service for sysvinit
   become: true
@@ -12,4 +12,4 @@
     name: vector
     enabled: true
     state: reloaded
-  when: ansible_facts.service_mgr == "sysvinit" and ansible_facts.virtualization_type != "docker"
+  when: ansible_facts.virtualization_type != "docker" and ansible_facts.virtualization_type != "podman"

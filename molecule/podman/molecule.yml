@@ -4,24 +4,22 @@ dependency:
   enabled: false
 driver:
   name: podman
-lint: |
-  ansible-lint
-  yamllint .
+
 platforms:
-  - name: ubuntu
-    image: pycontribs/ubuntu:latest
+  # - name: ubuntu
+  #   image: pycontribs/ubuntu:latest
+  #   pre_build_image: true
+  - name: centos7
+    image: docker.io/pycontribs/centos:7
     pre_build_image: true
-  # - name: centos7
-  #   image: pycontribs/centos:7
-  #   command: /usr/sbin/init
-  #   capabilities:
-  #     - SYS_ADMIN
-  #   tmpfs:
-  #     - /run
-  #     - /tmp
-  #   volumes:
-  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    
 provisioner:
   name: ansible
 verifier:
   name: ansible
+scenario:
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - destroy

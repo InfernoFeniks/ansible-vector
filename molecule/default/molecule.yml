@@ -1,7 +1,7 @@
 ---
 dependency:
   name: galaxy
-  enabled: true # to disable, set to false
+  enabled: true
 driver:
   name: docker
 lint: |
