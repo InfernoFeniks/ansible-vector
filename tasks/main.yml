@@ -6,11 +6,11 @@
 #   when: ansible_pkg_mgr == "yum"
 
 - name: SYSTEM | Update DNF repo for CentOS 8
-  include_tasks: dnf_prepare.yml
+  ansible.builtin.include_tasks: dnf_prepare.yml
   when: ansible_pkg_mgr == "dnf"
 
 - name: SYSTEM | Prepare systems
-  include_tasks: pre_task.yml
+  ansible.builtin.include_tasks: pre_task.yml
 
 - name: VECTOR | Get distrib
   become: true
@@ -34,7 +34,7 @@
         mode: "0644"
       when: ansible_os_family == "RedHat" and ansible_pkg_mgr == "dnf"
 
-- name: VECTOR | Install packages 
+- name: VECTOR | Install packages
   become: true
   block:
     - name: VECTOR | Install on Debian Family
@@ -70,4 +70,4 @@
         mode: "0644"
 
 - name: VECTOR | Restarted service
-  include_tasks: service.yml
+  ansible.builtin.include_tasks: service.yml
