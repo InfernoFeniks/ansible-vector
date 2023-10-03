@@ -1,6 +1,6 @@
 node("agent"){
     stage("Git clone"){
-        git 'https://github.com/InfernoFeniks/ansible-vector.git'
+        git clone 'https://github.com/InfernoFeniks/ansible-vector.git'
     }
     stage("Set var prod_run"){
         if(env.IS_PROD){
