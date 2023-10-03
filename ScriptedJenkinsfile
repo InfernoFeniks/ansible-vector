@@ -11,10 +11,10 @@ node("agent"){
     }
     stage("Run ansible playbook"){
         if (prod_run){
-            sh 'ansible-playbook site.yml -i inventory/prod.yaml'
+            sh 'ansible-playbook tests/test.yml -i tests/inventory'
         }
         else{
-            sh 'ansible-playbook site.yml -i inventory/prod.yaml --check --diff'
+            sh 'ansible-playbook tests/test.yml -i tests/inventory --check --diff'
         }
     }
 }
